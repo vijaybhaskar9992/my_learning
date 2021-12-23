@@ -38,13 +38,13 @@ app.post("/players/", async (request, response) => {
   const postQuery = `
   insert into cricket_team (player_name , jersey_number, role) values
   (
-      "${playerName}",
+      '${playerName}',
       ${jerseyNumber},
-      "${role}"
+      '${role}'
   );`;
-  await db.run(postQuery);
-
-  response.send("Player Added to Team");
+  const dbResponse = await db.run(postQuery);
+  const playerId = dbResponse.lastID;
+  response.send({ player_id: playerId });
 });
 
 app.get("/", (request, response) => {});

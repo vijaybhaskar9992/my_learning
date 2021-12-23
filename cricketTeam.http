@@ -4,9 +4,8 @@ GET http://localhost:3000/players
 ####
 POST http://localhost:3000/players/
 
-Content-Type: : text/html
-
-content{
+Content-Type: : application/json
+{   
   "playerName": "Vishal",
   "jerseyNumber": 17,
   "role": "Bowler"
